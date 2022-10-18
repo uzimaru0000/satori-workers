@@ -1,12 +1,9 @@
 // @ts-ignore
 import satori, { init } from 'satori/wasm';
 // @ts-ignore
-import yogaInit from 'yoga-wasm-web';
-import yogaWasm from '../assets/yoga.wasm';
+import initYoga from 'yoga-wasm-web';
 import { Resvg, initWasm } from '@resvg/resvg-wasm';
-import resvgWasm from '../assets/resvg.wasm';
-import notoSans from '../assets/Noto_Sans_JP/NotoSansJP-Regular.otf';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 const genModuleInit = () => {
   let isInit = false;
@@ -14,8 +11,10 @@ const genModuleInit = () => {
     if (isInit) {
       return;
     }
+    const { default: yogaWasm } = await import('../assets/yoga.wasm');
+    const { default: resvgWasm } = await import('../assets/resvg.wasm');
 
-    init(await yogaInit(yogaWasm));
+    init(await initYoga(yogaWasm));
     await initWasm(resvgWasm);
     isInit = true;
   };
@@ -24,6 +23,9 @@ const moduleInit = genModuleInit();
 
 export const generateImage = async (node: ReactNode) => {
   await moduleInit();
+  const { default: notoSans } = await import(
+    '../assets/Noto_Sans_JP/NotoSansJP-Regular.otf'
+  );
 
   const svg = await satori(node, {
     width: 600,
