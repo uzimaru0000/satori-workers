@@ -1,0 +1,6 @@
+name = "edge-meta"
+main = "src/index.tsx"
+compatibility_date = "2022-10-16"
+rules = [
+  { type = "Data", globs = ["**/*.ttf", "**/*.otf"], fallthrough = true },
+]
