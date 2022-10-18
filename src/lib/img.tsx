@@ -26,7 +26,7 @@ export const generateImage = async (node: ReactNode) => {
   await moduleInit();
   const notoSans = await loadGoogleFont({
     family: 'Noto Sans JP',
-    weight: 400,
+    weight: 100,
   });
 
   const svg = await satori(node, {
@@ -36,8 +36,8 @@ export const generateImage = async (node: ReactNode) => {
       {
         name: 'NotoSansJP',
         data: notoSans,
-        weight: 400,
-        style: 'normal',
+        weight: 100,
+        style: 'thin',
       },
     ],
   });
