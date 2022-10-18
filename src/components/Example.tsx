@@ -1,4 +1,13 @@
-export const Example = ({ msg }: { msg: string }) => {
+interface Props {
+  msg: string;
+  from?: string;
+  to?: string;
+}
+export const Example = ({
+  msg,
+  from = 'rgba(25,152,97,1)',
+  to = 'rgba(0,93,255,1)',
+}: Props) => {
   return (
     <div
       style={{
@@ -7,14 +16,13 @@ export const Example = ({ msg }: { msg: string }) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        background:
-          'linear-gradient(45deg, rgba(25,152,97,1) 0%, rgba(0,93,255,1) 100%)',
+        background: `linear-gradient(45deg, ${from} 0%, ${to} 100%)`,
       }}
     >
       <span
         style={{
           fontSize: '64px',
-          color: '#ffffff',
+          color: 'filter: invert(100%) grayscale(100%) contrast(100)',
         }}
       >
         {msg}
