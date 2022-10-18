@@ -1,4 +1,4 @@
-name = "edge-meta"
+name = "satori-workers"
 main = "src/index.tsx"
 compatibility_date = "2022-10-11"
 compatibility_flags = ["streams_enable_constructors"]

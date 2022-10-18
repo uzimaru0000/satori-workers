@@ -1,5 +1,5 @@
 {
-  "name": "edge-meta",
+  "name": "satori-workers",
   "version": "0.0.0",
   "devDependencies": {
     "@cloudflare/workers-types": "^3.17.0",

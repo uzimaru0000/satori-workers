@@ -30,8 +30,8 @@ export const generateImage = async (node: ReactNode) => {
   });
 
   const svg = await satori(node, {
-    width: 600,
-    height: 400,
+    width: 1200,
+    height: 630,
     fonts: [
       {
         name: 'NotoSansJP',
@@ -42,7 +42,7 @@ export const generateImage = async (node: ReactNode) => {
     ],
   });
 
-  const resvg = new Resvg(svg, {});
+  const resvg = new Resvg(svg);
   const pngData = resvg.render();
   const pngBuffer = pngData.asPng();
 
